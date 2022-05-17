@@ -10,10 +10,11 @@ const controller = require('./index');
 
 router.post('/login', function(req, res ){
     console.log('haceindo login para ' , req.body)
+
     controller.login(req.body.username, req.body.password)
     .then(token => {
         res.setHeader("Authorization", "Bearer ", token);
-        response.success(req, res, token, 200);
+        response.successAuth(req, res, token, 200);
     })
     .catch(e => {
         response.error(req, res, 'info invalida', 400);

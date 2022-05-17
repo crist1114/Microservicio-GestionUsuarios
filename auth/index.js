@@ -9,7 +9,7 @@ const secret = config.jwt.secret;
 function sign(data){
   
     datos = JSON.parse( JSON.stringify(data));
-    
+    console.log(datos)
     return jwt.sign(datos, secret);    //le pasamos al usuario que esta haciendo login y un secreto
 }
 

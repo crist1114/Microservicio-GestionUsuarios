@@ -35,6 +35,7 @@ module.exports = function (injectedStore){
                 if(sonIguales){
                     //Generar token;
                     console.log('si son iguales')
+                    
                     return auth.sign(data);    //voy a autorizar el usuario que hace login
                 }
                 else{
