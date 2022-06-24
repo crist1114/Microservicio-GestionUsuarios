@@ -53,8 +53,44 @@ paths:
           description: A successful response
           schema:
             type: string
+  /api/user/estudiantesProyecto:
+    post:
+      summary: agregar usuario
+      operationId: user
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
   /api/user:
     put:
+      summary: editar usuario
+      operationId: user
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /api/user/correo/:correo:
+    get:
+        summary: correo
+        operationId: user
+        responses:
+          '200':
+            description: A successful response
+            schema:
+              type: string
+  /api/user/estudiantes/:rol:
+    get:
+        summary: correo
+        operationId: user
+        responses:
+          '200':
+            description: A successful response
+            schema:
+              type: string
+  /api/auth/login:
+    post:
       summary: editar usuario
       operationId: user
       responses:
