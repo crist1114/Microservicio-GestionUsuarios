@@ -18,8 +18,29 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/:id', function(req, res, next){
-    
+    console.log(req.params.id)
     controller.get(req.params.id)
+    .then((user)=>{
+        console.log(user)
+        response.success(req,res,user, 200);
+    })
+    .catch(next);
+
+});
+
+router.get('/correo/:correo', function(req, res, next){
+    
+    controller.getPorCorreo(req.params.correo)
+    .then((user)=>{
+        response.success(req,res,user, 200);
+    })
+    .catch(next);
+
+});
+
+router.get('/estudiantes/:rol', function(req, res, next){
+    
+    controller.getEstudiantes(req.params.rol)
     .then((user)=>{
         response.success(req,res,user, 200);
     })
@@ -29,10 +50,21 @@ router.get('/:id', function(req, res, next){
 
 router.post('/', function(req, res, next){
     
-    // console.log(req.body);
+    console.log('se insertaraaa-- ',req.body);
     controller.upsert(req.body)
     .then((user)=>{
         response.success(req,res,user, 200);
+    })
+    .catch(next);
+
+});
+
+router.post('/estudiantesProyecto', function(req, res, next){
+    
+    console.log('los usuarios ',req.body);
+    controller.getEstudiantesProyecto(req.body)
+    .then((estudiantes)=>{
+        response.success(req,res,estudiantes, 200);
     })
     .catch(next);
 
@@ -46,7 +78,6 @@ router.put('/', secure('update'), function(req, res, next){
         response.success(req,res,user, 200);
     })
     .catch(next);
-
 });
 
 module.exports = router;

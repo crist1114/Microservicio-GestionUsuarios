@@ -1,0 +1,20 @@
+PARA SUBIR A CLOUD RUN 
+en la terminl de cloud 
+    docker pull cris1114/imagen:v 
+
+AHORA TAGEAMOS LA IMAGEN EN CLOUD CON LA NOMENCLATURA DE CLOUD Y EL ID DEL PROYECTO
+
+    docker tag cris1114/imagen:v gcr.io/idproyecto/micro-users:v1 
+
+REVISAMOS SI SE TAGEÓ CON 
+    docker images 
+AHORA EMPUJAMOS LA IMAGEN A CLOUD REGISTRY
+
+    docker push gcr.io/idproyecto/micro-users:v1
+
+UNA VEZ DESPLEGADA IR CLOUD RUN CREAR SERVICIO Y SELECCIONAR LA IMAGEN 
+
+apigateway 
+https://cloud.google.com/api-gateway/docs/get-started-cloud-run?hl=es-419
+
+hacerlo desde la interfaz y usar el archivo openapi2-run.yaml guardado aqui

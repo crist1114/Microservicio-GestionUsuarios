@@ -18,6 +18,18 @@ module.exports = function (injectedStore){
         return store.get(TABLA, id);
     }
 
+    function getPorCorreo(correo){
+        return store.getPorCorreo(TABLA, correo);
+    }
+
+    function getEstudiantes(rol){
+        return store.getEstudiantes(TABLA,rol);
+    }
+
+    function getEstudiantesProyecto(estudiantes){
+        return store.getEstudiantesProyecto(TABLA,estudiantes);
+    }
+
 /**Inserta o actualiza un usuario 
  * Envia los datos a auth para la encriptacion
  */
@@ -27,6 +39,7 @@ module.exports = function (injectedStore){
         const user = {
                     name: body.name,
                     username: body.username,
+                    id_rol: body.rol,
                 }
         
 
@@ -35,6 +48,7 @@ module.exports = function (injectedStore){
         }else{
             user.id = nanoid();
         }
+        console.log('usuario sin contraseña ',user)
         /**Aqui envio los datos a auth para la encriptacion */
         if(body.password || body.username){
 
@@ -53,6 +67,9 @@ module.exports = function (injectedStore){
         list,
         get,
         upsert,
+        getEstudiantes,
+        getEstudiantesProyecto,
+        getPorCorreo,
     }
     
 }

@@ -24,9 +24,9 @@ app.use(
         origin: function (origin, callback) {
             if (!origin) return callback(null, true);
             // Dirección desde donde se pueden hacer peticiones
-            if (!["http://localhost:4200"].includes(origin)) {
-                return callback(new Error(`La política CORS para el origen ${origin} no permiten el acceso al servidor.`), false);
-            }
+            // if (!["http://localhost:4200"].includes(origin)) {
+            //     return callback(new Error(`La política CORS para el origen ${origin} no permiten el acceso al servidor.`), false);
+            // }
             return callback(null, true);
         }
     })

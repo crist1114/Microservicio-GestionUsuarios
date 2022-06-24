@@ -19,7 +19,8 @@ exports.successAuth = function(req, res, mensaje,status){
     res.status(statusCode).send({
         error: false,
         status: statusCode,
-        body: mensaje,
+        body: mensaje.token,
+        usuario: mensaje.usuario
 
     });
 }

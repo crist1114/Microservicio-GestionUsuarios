@@ -9,7 +9,7 @@ const secret = config.jwt.secret;
 function sign(data){
   
     datos = JSON.parse( JSON.stringify(data));
-    console.log(datos)
+    console.log('los datos de sign ',datos)
     return jwt.sign(datos, secret);    //le pasamos al usuario que esta haciendo login y un secreto
 }
 
@@ -46,8 +46,8 @@ function getToken(authorization){
 
 /**Funcion que decodifica el token recibe la request */
 function decodeHeader(req){
-
     const authorization = req.headers.authorization || '';
+    
     const token = getToken(authorization);  //saca el token de la cabecera
     const decoded = verify(token);  //verifico que el token es valido
 

@@ -1,0 +1,26 @@
+CREAR LA IMAGEN 
+     docker build -t docker-nombre . 
+     
+ver si creo la imagen 
+    docker images 
+
+verificar si se creo 
+    docker run -d -p puertoNuevo(paraCorrerLocal):PuertoApp docker-nombre
+
+para ver si esta corriendo
+    docker ps
+
+
+para subir a dockerhub 
+    docker login 
+
+crear la imagen 
+    docker build -t usuarioDocker/nombreParaLaImagen:latest .
+
+
+renombrar la imagen creada 
+    docker tag nombreImagen usuario/nombre:v1 
+
+subir al repo 
+    docker push usuario/nombre:v1
+

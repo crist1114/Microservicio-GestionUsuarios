@@ -35,8 +35,11 @@ module.exports = function (injectedStore){
                 if(sonIguales){
                     //Generar token;
                     console.log('si son iguales')
-                    
-                    return auth.sign(data);    //voy a autorizar el usuario que hace login
+                    const info = {
+                        token: auth.sign(data),
+                        usuario: data
+                    }
+                    return info   //voy a autorizar el usuario que hace login
                 }
                 else{
                     throw new Error('Informacion invalida');
@@ -64,6 +67,7 @@ module.exports = function (injectedStore){
             authData.password = await bcrypt.hash(data.password, 5);  //bcrypt hashea la password para que no la guarde en limpio
         }
         /**Aqui actualizo o inserto id, username y password */
+        console.log('en auth se insertara ',authData)
         return store.upsert(TABLA, authData);
     }
 

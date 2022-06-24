@@ -1,0 +1,64 @@
+# openapi2-run.yaml
+swagger: '2.0'
+info:
+  title: micro-id optional-string
+  description: Sample API on API Gateway with a Cloud Run backend
+  version: 1.0.0
+schemes:
+- https
+produces:
+- application/json
+x-google-backend:
+  address: https://micro-users-bclbwzlakq-uc.a.run.app
+paths:
+  /assets/{asset}:
+    get:
+      parameters:
+        - in: path
+          name: asset
+          type: string
+          required: true
+          description: Name of the asset.
+      summary: Assets
+      operationId: getAsset
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /api/user:
+    get:
+      summary: Cloud Run hello world
+      operationId: user
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /api/user/:id:
+    get:
+      summary: obtener un usuario
+      operationId: user
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /api/user:
+    post:
+      summary: agregar usuario
+      operationId: user
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /api/user:
+    put:
+      summary: editar usuario
+      operationId: user
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
